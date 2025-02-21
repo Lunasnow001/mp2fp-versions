@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
+import { AiFillCaretUp } from "react-icons/ai";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,7 +39,7 @@ const ScrollToTop = () => {
           className="right-4 bottom-4 z-50 fixed bg-orange-400 hover:bg-orange-600 shadow-lg p-3 rounded-full text-white transition-all duration-300"
           aria-label="Scroll to top"
         >
-          <ChevronUp className="w-6 h-6" />
+          <AiFillCaretUp  className="w-6 h-6" />
         </button>
       )}
     </>
