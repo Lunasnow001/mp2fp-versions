@@ -36,7 +36,7 @@ import PLAN_31 from "./3D/PLAN_31.jpg";
 import PLAN_32 from "./3D/PLAN_32.jpg";
 
 // No Image
-import No_image from "./No_image.png";
+import No_image from "./No_Image.png";
 
 // SCANNED MODEL
 import PLAN2D_1 from "./3D/2D_S01/2D_FF_S01.jpg";
