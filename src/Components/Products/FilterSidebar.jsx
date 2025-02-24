@@ -31,18 +31,18 @@ const FilterSidebar = () => {
     "Navy",
   ];
   const types = ["FF", "UF", "FAI", "FIF", "SP"];
-  const materials = [
-    "Cotton",
-    "Wool",
-    "Denim",
-    "Polyester",
-    "Silk",
-    "Linen",
-    "Viscose",
-    "Fleece",
-  ];
-  const brands = ["MP2FP Brand", "Luna Brand", "Pattaya Brand"];
-  const employees = ["John", "Jame"];
+  // const materials = [
+  //   "Cotton",
+  //   "Wool",
+  //   "Denim",
+  //   "Polyester",
+  //   "Silk",
+  //   "Linen",
+  //   "Viscose",
+  //   "Fleece",
+  // ];
+  const brands = ["MP2FP Brand", "VN Brand", "Pattaya Brand"];
+  // const employees = ["John", "Jame"];
 
   useEffect(() => {
     const params = Object.fromEntries([...searchParams]);
@@ -123,7 +123,7 @@ const FilterSidebar = () => {
       </div>
 
       {/* employee */}
-      <div className="mb-6">
+      {/* <div className="mb-6">
         <label className="block mb-2 font-medium text-gray-900">Employee</label>
         {employees.map((employee) => (
           <div key={employee} className="items-center mb-1 flxe">
@@ -138,7 +138,7 @@ const FilterSidebar = () => {
             <span className="text-gray-700">{employee}</span>
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* Colors */}
       <div className="mb-6">
