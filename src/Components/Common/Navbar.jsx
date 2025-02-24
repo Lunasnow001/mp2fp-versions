@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   HiOutlineUser,
   HiOutlineShoppingBag,
@@ -15,6 +15,7 @@ import { MdOutlineLibraryAdd } from "react-icons/md";
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
+  const location = useLocation();
 
   const toggNavDrawer = () => {
     setNavDrawerOpen(!navDrawerOpen);
@@ -22,6 +23,10 @@ const Navbar = () => {
 
   const toggleCartDrawer = () => {
     setDrawerOpen(!drawerOpen);
+  };
+
+  const isActivePath = (path) => {
+    return location.pathname === path;
   };
 
   return (
@@ -36,41 +41,65 @@ const Navbar = () => {
             <span className="text-orange-400">MP</span>2FP
           </Link>
         </div>
-        {/* Center - Navigtion Links */}
+        {/* Center - Navigation Links */}
         <div className="hidden md:flex space-x-6">
           <Link
             to="/collections/all"
-            className="font-medium text-gray-700 hover:text-black text-sm hover:underline hover:underline-offset-4 uppercase"
+            className={`font-medium text-gray-700 hover:text-black text-sm hover:underline hover:underline-offset-4 uppercase ${
+              isActivePath("/collections/all")
+                ? "underline underline-offset-4"
+                : ""
+            }`}
           >
             All
           </Link>
           <Link
             to="/ufpage"
-            className="font-medium text-gray-700 hover:text-orange-400 text-sm hover:underline hover:underline-offset-4 uppercase"
+            className={`font-medium text-gray-700 hover:text-orange-400 text-sm hover:underline hover:underline-offset-4 uppercase ${
+              isActivePath("/ufpage")
+                ? "underline underline-offset-4 text-orange-400"
+                : ""
+            }`}
           >
             UF
           </Link>
           <Link
             to="/fifpage"
-            className="font-medium text-gray-700 hover:text-orange-400 text-sm hover:underline hover:underline-offset-4 uppercase"
+            className={`font-medium text-gray-700 hover:text-orange-400 text-sm hover:underline hover:underline-offset-4 uppercase ${
+              isActivePath("/fifpage")
+                ? "underline underline-offset-4 text-orange-400"
+                : ""
+            }`}
           >
             FIF
           </Link>
           <Link
             to="/ffpage"
-            className="font-medium text-gray-700 hover:text-orange-400 text-sm hover:underline hover:underline-offset-4 uppercase"
+            className={`font-medium text-gray-700 hover:text-orange-400 text-sm hover:underline hover:underline-offset-4 uppercase ${
+              isActivePath("/ffpage")
+                ? "underline underline-offset-4 text-orange-400"
+                : ""
+            }`}
           >
             FF
           </Link>
           <Link
             to="/faipage"
-            className="font-medium text-gray-700 hover:text-orange-400 text-sm hover:underline hover:underline-offset-4 uppercase"
+            className={`font-medium text-gray-700 hover:text-orange-400 text-sm hover:underline hover:underline-offset-4 uppercase ${
+              isActivePath("/faipage")
+                ? "underline underline-offset-4 text-orange-400"
+                : ""
+            }`}
           >
             FAI
           </Link>
           <Link
             to="/sppage"
-            className="font-medium text-gray-700 hover:text-orange-400 text-sm hover:underline hover:underline-offset-4 uppercase"
+            className={`font-medium text-gray-700 hover:text-orange-400 text-sm hover:underline hover:underline-offset-4 uppercase ${
+              isActivePath("/sppage")
+                ? "underline underline-offset-4 text-orange-400"
+                : ""
+            }`}
           >
             SP
           </Link>
@@ -85,7 +114,14 @@ const Navbar = () => {
             Admin
           </Link>
           <Link to="/profile" className="hover:text-black">
-            <HiOutlineUser className="w-6 h-6 text-gray-700" />
+            <div className="relative">
+              <img
+                className="border hover:border-orange-400 rounded-full w-8 h-8"
+                src="https://img.lovepik.com/png/20231110/black-cat-face-black-cats-cartoon-sticker_554984_wh860.png"
+                alt="Profile"
+              />
+              <span className="top-0 left-6 absolute bg-green-500 border-2 border-white dark:border-gray-800 rounded-full w-3.5 h-3.5"></span>
+            </div>
           </Link>
           <button
             onClick={toggleCartDrawer}
@@ -127,42 +163,66 @@ const Navbar = () => {
             <Link
               to="/collections/all"
               onClick={toggNavDrawer}
-              className="block text-gray-600 hover:text-black hover:underline-offset-4 k"
+              className={`block text-gray-600 hover:text-black hover:underline-offset-4 ${
+                isActivePath("/collections/all")
+                  ? "underline underline-offset-4"
+                  : ""
+              }`}
             >
               All
             </Link>
             <Link
               to="/ufpage"
               onClick={toggNavDrawer}
-              className="block text-gray-600 hover:text-black hover:underline-offset-4 k"
+              className={`block text-gray-600 hover:text-black hover:underline-offset-4 ${
+                isActivePath("/ufpage")
+                  ? "underline underline-offset-4 text-orange-400"
+                  : ""
+              }`}
             >
               UF
             </Link>
             <Link
               to="/fifpage"
               onClick={toggNavDrawer}
-              className="block text-gray-600 hover:text-black hover:underline-offset-4"
+              className={`block text-gray-600 hover:text-black hover:underline-offset-4 ${
+                isActivePath("/fifpage")
+                  ? "underline underline-offset-4 text-orange-400"
+                  : ""
+              }`}
             >
               FIF
             </Link>
             <Link
               to="/ffpage"
               onClick={toggNavDrawer}
-              className="block text-gray-600 hover:text-black hover:underline-offset-4"
+              className={`block text-gray-600 hover:text-black hover:underline-offset-4 ${
+                isActivePath("/ffpage")
+                  ? "underline underline-offset-4 text-orange-400"
+                  : ""
+              }`}
             >
               FF
             </Link>
             <Link
               to="/faipage"
               onClick={toggNavDrawer}
-              className="block text-gray-600 hover:text-black hover:underline-offset-4"
+              className={`block text-gray-600 hover:text-black hover:underline-offset-4 ${
+                isActivePath("/faipage")
+                  ? "underline underline-offset-4 text-orange-400"
+                  : ""
+              }`}
             >
               FAI
             </Link>
             <Link
               to="/sppage"
               onClick={toggNavDrawer}
-              className="block text-gray-600 hover:text-black hover:underline-offset-4"
+              className={`block text-gray-600 hover:text-black hover:underline-offset-4 ${
+                isActivePath("/sppage")
+                  ? "underline underline-offset-4 text-orange-400"
+                  : ""
+              }`}
             >
               SP
             </Link>

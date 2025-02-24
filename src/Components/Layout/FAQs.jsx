@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqData = [
-// Section 1
+  // Section 1
   {
     items: [
       {
@@ -78,7 +78,7 @@ const faqData = [
       },
     ],
   },
-// Section 2 
+  // Section 2
   {
     items: [
       {
@@ -145,13 +145,22 @@ const faqData = [
   },
 ];
 
-const FAQs = () => {
+const FAQs = ({ darkMode }) => {
   return (
-    <div className="flex flex-col items-center bg-[#f4f7f9] px-6 sm:px-8 md:px-12 pt-20 pb-24">
-      <h1 className="mb-4 font-bold text-3xl text-center">Frequently Asked Questions</h1>
+    <div
+      className={`flex flex-col items-center bg-[#f4f7f9] px-6 sm:px-8 md:px-12 pt-20 pb-24 ${
+        darkMode ? "bg-gray-800" : "bg-white"
+      }`}
+    >
+      <h1 className="mb-4 font-bold text-3xl text-center">
+        Frequently Asked Questions
+      </h1>
       <div className="gap-4 grid grid-cols-1 md:grid-cols-2 w-full max-w-4xl sm:max-w-5xl md:max-w-6xl">
         {faqData.map((section, index) => (
-          <div key={index} className="space-y-2 shadow-sm p-4 sm:p-6 overflow-hidden">
+          <div
+            key={index}
+            className="space-y-2 shadow-sm p-4 sm:p-6 overflow-hidden"
+          >
             {section.items.map((item) => (
               <AccordionItem
                 key={item.key}

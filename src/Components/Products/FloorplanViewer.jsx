@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { assets } from "../../assets/assets";
 
-const FloorplanViewer = () => {
+const FloorplanViewer = ({ darkMode }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const floorplans = [
@@ -41,13 +42,17 @@ const FloorplanViewer = () => {
   };
 
   return (
-    <div className="relative mx-auto py-16 pt-14 border-t border-b w-full max-w-6xl">
+    <div
+      className={`relative mx-auto py-16 pt-14 w-full max-w-6xl ${
+        darkMode ? "" : "bg-white"
+      }`}
+    >
       {/* Top text section */}
       <div className="mb-8 text-center">
         <p className="mb-2 text-gray-500 text-sm">
           {floorplans[currentSlide].type}
         </p>
-        <h2 className="font-semibold text-gray-950 text-2xl md:text-3xl">
+        <h2 className="font-semibold text-gray-500 text-2xl md:text-3xl">
           {floorplans[currentSlide].description}
         </h2>
       </div>

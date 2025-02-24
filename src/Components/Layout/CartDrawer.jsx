@@ -17,7 +17,7 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
       }`}
     >
       {/* Close Button */}
-      <div className="flex justify-end p-4">
+      <div className="flex justify-start p-4">
         <button onClick={toggleCartDrawer}>
           <IoMdClose className="w-6 h-6 text-gray-600" />
         </button>
@@ -37,7 +37,7 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
         >
           Checkout
         </button>
-        <p className="mt-2 text-center text-gray-500 text-sm tracking-tighter">
+        <p className="mt-2 text-gray-500 text-sm text-center tracking-tighter">
           Shipping, taxes, and discount codes calculated at checkout.
         </p>
       </div>

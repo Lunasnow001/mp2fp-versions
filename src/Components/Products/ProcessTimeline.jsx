@@ -16,7 +16,7 @@ const ProcessTimeline = () => {
     { icon: <FaCheck /> },
   ];
   return (
-    <div className="flex flex-col items-center bg-gray-700/90 px-4 py-20 text-white">
+    <div className={`flex flex-col items-center bg-gray-700/90 px-4 py-20 text-white `}>
     <h2 className="mb-8 font-semibold text-xl md:text-2xl text-center">How does it work?</h2>
     <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 w-full max-w-4xl">
       {steps.map((step, index) => (

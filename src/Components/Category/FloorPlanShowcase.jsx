@@ -42,7 +42,7 @@ const FloorPlanShowcase = () => {
     setIsDragging(false);
   };
 
-  const handleModalMouseDown = (e) => {  
+  const handleModalMouseDown = (e) => {
     setIsDragging(true);
     setDragStart({
       x: e.clientX - panPosition.x,

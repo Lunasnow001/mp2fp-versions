@@ -1,15 +1,15 @@
+// Home.jsx
+import { useState, useEffect } from "react";
 import { assets } from "../assets/assets";
 import ScrollToTop from "../Components/Common/ScrollToTop";
 import FAQs from "../Components/Layout/FAQs";
 import Hero from "../Components/Layout/Hero";
 import FloorplanOrder from "../Components/Products/FloorplanOrder";
 import FloorplanViewer from "../Components/Products/FloorplanViewer";
-// import GenderCollectionSection from "../Components/Products/GenderCollectionSection";
 import NewArrivals from "../Components/Products/NewArrivals";
 import ProcessTimeline from "../Components/Products/ProcessTimeline";
-// import ProductDetails from "../Components/Products/ProductDetails";
 import ProductGrid from "../Components/Products/ProductGrid";
-
+import { Moon, Sun } from "lucide-react";
 
 const placeholderProducts = [
   {
@@ -63,28 +63,51 @@ const placeholderProducts = [
 ];
 
 const Home = () => {
-  return (
-    <div className="bg-[#f4f7f9]">
-      <ScrollToTop />
-      <Hero />
-      {/* <div className="mx-auto container"> */}
+  const [darkMode, setDarkMode] = useState(false);
 
-      <FloorplanViewer />
-      {/* <GenderCollectionSection /> */}
-      <ProcessTimeline />
-      <FloorplanOrder />
-      <NewArrivals />
-      {/* <ProductDetails /> */}
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setDarkMode(true);
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
+  return (
+    <div
+      className={`transition-colors duration-200 ${
+        darkMode ? "bg-gray-900 text-white" : "bg-[#f4f7f9] text-gray-900"
+      }`}
+    >
+      <ScrollToTop />
+
+      <button
+        onClick={toggleDarkMode}
+        className="hidden md:block top-3 right-4 z-50 fixed p-1.5 border border-gray-500 hover:border-orange-400 rounded-full transition-all duration-200"
+      >
+        {darkMode ? (
+          <Sun className="w-6 h-6 text-orange-500" />
+        ) : (
+          <Moon className="w-6 h-6 text-orange-300" />
+        )}
+      </button>
+
+      <Hero darkMode={darkMode} />
+      <FloorplanViewer darkMode={darkMode} />
+      <ProcessTimeline darkMode={darkMode} />
+      <FloorplanOrder darkMode={darkMode} />
+      <NewArrivals darkMode={darkMode} />
+
       <div className="mx-auto container">
-        <h2 className="mt-20 mb-4 font-bold text-3xl text-center">
+        <h2 className="mt-16 mb-4 font-bold text-3xl text-center">
           All house model examples
         </h2>
-        <ProductGrid products={placeholderProducts} />
+        <ProductGrid products={placeholderProducts} darkMode={darkMode} />
       </div>
 
-      <FAQs />
-
-      {/* </div> */}
+      <FAQs darkMode={darkMode} />
     </div>
   );
 };

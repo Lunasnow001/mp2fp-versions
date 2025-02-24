@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
-const NewArrivals = () => {
+const NewArrivals = ({ darkMode }) => {
   const scrollRef = useRef();
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -154,7 +155,11 @@ const NewArrivals = () => {
   }, []);
 
   return (
-    <section className="bg-gray-700/40 px-4 lg:px-0 py-16">
+    <section
+      className={`bg-gray-700/40 px-4 lg:px-0 py-16 ${
+        darkMode ? "bg-gray-800" : "bg-gray-300"
+      }`}
+    >
       <div className="relative mx-auto mb-6 py-6 text-center container">
         <h2 className="mb-4 font-bold text-3xl">Explore New Arrivals</h2>
         <p className="mb-2 text-gray-600 text-lg">
@@ -173,7 +178,7 @@ const NewArrivals = () => {
                 : "bg-gray-200 text-gray-400 cursor-not-allowed"
             }`}
           >
-            <FiChevronLeft className="text-2xl hover:text-orange-400" />
+            <FiChevronLeft className="hover:text-orange-400 text-2xl" />
           </button>
           <button
             onClick={() => scroll("right")}
@@ -183,7 +188,7 @@ const NewArrivals = () => {
                 : "bg-gray-200 text-gray-400 cursor-not-allowed"
             }`}
           >
-            <FiChevronRight className="text-2xl hover:text-orange-400" />
+            <FiChevronRight className="hover:text-orange-400 text-2xl" />
           </button>
         </div>
       </div>
@@ -207,7 +212,7 @@ const NewArrivals = () => {
             <img
               src={product.images[0]?.url}
               alt={product.images[0]?.altText || product.name}
-              className="border-1 shadow-xl rounded-lg w-full h-[500px] object-cover"
+              className="shadow-xl border-1 rounded-lg w-full h-[500px] object-cover"
               draggable="false"
             />
             <div className="right-0 bottom-0 left-0 absolute bg-black bg-opacity-50 backdrop-blur-md p-4 rounded-b-lg text-white">

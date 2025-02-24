@@ -35,6 +35,32 @@ const MyOrderPage = () => {
           totalPrice: 120,
           isPaid: false,
         },
+        {
+          _id: "ad6958scws135684118",
+          createAt: new Date(),
+          shippingAddress: { city: "Bangkok", country: "TH" },
+          orderItems: [
+            {
+              name: "Product 2",
+              image: "https://picsum.photos/500/500?random=3",
+            },
+          ],
+          totalPrice: 120,
+          isPaid: true,
+        },
+        {
+          _id: "ad6958scws147475112",
+          createAt: new Date(),
+          shippingAddress: { city: "ChiangMai", country: "TH" },
+          orderItems: [
+            {
+              name: "Product 2",
+              image: "https://picsum.photos/500/500?random=4",
+            },
+          ],
+          totalPrice: 120,
+          isPaid: false,
+        },
       ];
 
       setOrders(mockOrders);

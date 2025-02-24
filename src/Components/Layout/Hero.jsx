@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { assets } from '../../assets/assets';
+import { assets } from "../../assets/assets";
 
-const Hero = () => {
+const Hero = ({ darkMode }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
+
   // Add your image URLs here
   const images = [
     assets.PLAN_18,
@@ -16,7 +17,7 @@ const Hero = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
+      setCurrentImageIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, 10000); // Change image every 10 seconds
@@ -25,13 +26,13 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative">
+    <section className={`relative ${darkMode ? "bg-gray-800" : "bg-white"}`}>
       <div className="relative w-full h-[400px] md:h-[600px] lg:h-[750px] overflow-hidden">
         {images.map((image, index) => (
           <div
             key={index}
             className={`absolute w-full h-full transition-opacity duration-1000 ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
             }`}
           >
             <img
@@ -48,7 +49,7 @@ const Hero = () => {
             <span className="text-orange-400">M P</span> 2 F P
           </h1>
           <h2 className="mb-6 text-[#ffffff] text-4xl tracking-tighter">
-            Modelpacks To Floorplan
+            Modelpacks To Floorplan 24 / 7
           </h2>
           <div className="flex sm:flex-row flex-col gap-3 sm:gap-6 mx-auto w-full max-w-[280px] sm:max-w-xl">
             <Link

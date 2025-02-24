@@ -30,7 +30,7 @@ const createStyleConfig = (style, basePrice2D, basePrice3D) => {
   };
 };
 
-const FloorplanOrder = () => {
+const FloorplanOrder = ({ darkMode }) => {
   const [modelLink, setModelLink] = useState("");
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -144,11 +144,11 @@ const FloorplanOrder = () => {
   };
 
   return (
-    <>
-      <h1 className="mt-10 font-semibold text-2xl text-center">
+    <div className={`${darkMode ? "" : "bg-[#f4f7f9]"}`}>
+      <h1 className="mt-10 mb-4 p-4 font-semibold text-2xl text-center">
         Order a floorplan now!
       </h1>
-      <div className="flex flex-col items-start bg-[#f4f7f9] mx-auto px-4 py-10 container">
+      <div className="flex flex-col items-start bg-[#f4f7f9] mx-auto px-4 py-10 rounded-lg container">
         <p className="mt-2 text-gray-600">
           1. Insert MP or BP link here before selecting a product below:
         </p>
@@ -216,7 +216,9 @@ const FloorplanOrder = () => {
                   )}
                 </div>
               )}
-              <h2 className="mt-2 font-semibold text-lg">{plan.title}</h2>
+              <h2 className="mt-2 font-semibold text-black text-lg">
+                {plan.title}
+              </h2>
               <p className="font-bold text-orange-500 text-xl">
                 ฿{plan.price}{" "}
                 <span className="mt-1 text-red-600 text-sm">
@@ -294,7 +296,7 @@ const FloorplanOrder = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

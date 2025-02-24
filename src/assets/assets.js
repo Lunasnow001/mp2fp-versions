@@ -1,11 +1,28 @@
+// -------------------------- UF
 import Mp2fpUf from "./MP2FP_2025/2D_UF/USNormal _UF_2D.png"
 import Mp2fpUf2 from "./MP2FP_2025/2D_UF/2D_UFwithMetmeasurement.png"
 import Mp2fpUf3 from "./MP2FP_2025/2D_UF/2D_UFwithImperialmeasurement.png"
+
+// -------------------------- FF
 import Mp2fpff from "./MP2FP_2025/2D_FF/USNormal _FF_2D.png"
 import Mp2fpff2 from "./MP2FP_2025/2D_FF/2D_FFwithImperialmeasurement.png"
 import Mp2fpff3 from "./MP2FP_2025/2D_FF/2D_FFwithMetmeasurement.png"
-import Mp2fpfif4GLA from "./MP2FP_2025/2D_FIF/2D_FIFwithGLA.png"
-import Mp2fpfif from "./MP2FP_2025/2D_FIF/USNormal _FIF_2D.png"
+
+// -------------------------- FIF
+import Mp2fpfif1 from "./MP2FP_2025/2D_FIF/2D_FIFwithGLA.png"
+import Mp2fpfif2 from "./MP2FP_2025/2D_FIF/2D_FIFwithImperialinsidedim.png"
+import Mp2fpfif3 from "./MP2FP_2025/2D_FIF/2D_FIFwithImperialmeasurements.png"
+import Mp2fpfif4 from "./MP2FP_2025/2D_FIF/2D_FIFwithImperialmeasurementsandarrow.png"
+import Mp2fpfif5 from "./MP2FP_2025/2D_FIF/2D_FIFwithImperialmeasurementsandoutsidedim.png"
+import Mp2fpfif6 from "./MP2FP_2025/2D_FIF/2D_FIFwithMetinsidedim.png"
+import Mp2fpfif7 from "./MP2FP_2025/2D_FIF/2D_FIFwithMetmeasurementsandarrow.png"
+import Mp2fpfif8 from "./MP2FP_2025/2D_FIF/2D_FIFwithmetmeasurementsandoutsidedim.png"
+import Mp2fpfif9 from "./MP2FP_2025/2D_FIF/USNormal _FIF_2D.png"
+
+// -------------------------- FAI
+
+// -------------------------- SP
+
 
 import PLAN_1 from "./3D/PLAN_1.jpg";
 import PLAN_2 from "./3D/PLAN_2.jpg";
@@ -82,14 +99,25 @@ import Plan3D2_FIF from "./3D/3D_A01/3D_FIF_C_A01.jpg";
 
 // -------------------------------------------------
 export const assets = {
+
   Mp2fpUf,
   Mp2fpUf2,
   Mp2fpUf3,
+
   Mp2fpff,
   Mp2fpff2,
   Mp2fpff3,
-  Mp2fpfif4GLA,
-  Mp2fpfif,
+
+  Mp2fpfif1,
+  Mp2fpfif2,
+  Mp2fpfif3,
+  Mp2fpfif4,
+  Mp2fpfif5,
+  Mp2fpfif6,
+  Mp2fpfif7,
+  Mp2fpfif8,
+  Mp2fpfif9,
+
   PLAN_1,
   PLAN_2,
   PLAN_3,

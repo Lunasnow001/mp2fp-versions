@@ -12,7 +12,7 @@ import { FaPhotoFilm } from "react-icons/fa6";
 import { assets } from "../../assets/assets";
 import { toast } from "sonner";
 
-const FloorPlanShowcase = () => {
+const FloorPlanShowcaseff = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [zoomLevel, setZoomLevel] = useState(1);
   const [showModal, setShowModal] = useState(false);
@@ -136,18 +136,6 @@ const FloorPlanShowcase = () => {
       description: "Same space, different perspective",
       image: assets.Mp2fpff3,
     },
-    // {
-    //   id: 4,
-    //   title: "2D_FIF With GLA",
-    //   areas: [
-    //     { label: "GROSS LIVING AREA", value: "2,053 ft²" },
-    //     { label: "EXCLUDING AREA", value: "397 ft²" },
-    //     { label: "PORCH", value: "129 ft²" },
-    //     { label: "PATIO", value: "268 ft²" },
-    //   ],
-    //   description: "Same space, different perspective",
-    //   image: assets.Mp2fpff4GLA,
-    // },
   ];
 
   const handleZoomIn = () => {
@@ -360,4 +348,4 @@ const FloorPlanShowcase = () => {
   );
 };
 
-export default FloorPlanShowcase;
+export default FloorPlanShowcaseff;
