@@ -6,7 +6,6 @@ import {
   ZoomIn,
   ZoomOut,
   X,
-  Download,
 } from "lucide-react";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { FaPhotoFilm } from "react-icons/fa6";
@@ -163,7 +162,6 @@ const FloorPlanShowcase = () => {
       }
     };
   }, []);
-
 
   const handleZoomIn = () => {
     setZoomLevel((prev) => Math.min(prev + 0.2, 4));
@@ -392,17 +390,21 @@ const FloorPlanShowcase = () => {
                   draggable="false"
                 />
               </div>
-              
+
               {/* Add zoom controls to modal */}
               <div className="right-4 bottom-4 absolute flex gap-2">
                 <button
-                  onClick={() => setModalZoom((prev) => Math.max(prev - 0.2, 1))}
+                  onClick={() =>
+                    setModalZoom((prev) => Math.max(prev - 0.2, 1))
+                  }
                   className="bg-gray-800/80 hover:bg-gray-800 shadow-md p-2 rounded-full text-white"
                 >
                   <ZoomOut size={20} />
                 </button>
                 <button
-                  onClick={() => setModalZoom((prev) => Math.min(prev + 0.2, 4))}
+                  onClick={() =>
+                    setModalZoom((prev) => Math.min(prev + 0.2, 4))
+                  }
                   className="bg-gray-800/80 hover:bg-gray-800 shadow-md p-2 rounded-full text-white"
                 >
                   <ZoomIn size={20} />

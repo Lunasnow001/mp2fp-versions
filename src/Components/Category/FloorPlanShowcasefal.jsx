@@ -1,12 +1,18 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut, X } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ZoomIn,
+  ZoomOut,
+  X,
+} from "lucide-react";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { FaPhotoFilm } from "react-icons/fa6";
 import { floorPlansfai } from "../../assets/datamp2fp";
 import { toast } from "sonner";
 
-const FloorPlanShowcasefai = () => {
+const FloorPlanShowcase = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [zoomLevel, setZoomLevel] = useState(1);
   const [showModal, setShowModal] = useState(false);
@@ -87,6 +93,51 @@ const FloorPlanShowcasefai = () => {
     });
   };
 
+  // Touch event handlers for mobile
+  const handleTouchStart = (e) => {
+    if (zoomLevel > 1) {
+      setIsDragging(true);
+      setDragStart({
+        x: e.touches[0].clientX - mainPanPosition.x,
+        y: e.touches[0].clientY - mainPanPosition.y,
+      });
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (isDragging && zoomLevel > 1) {
+      setMainPanPosition({
+        x: e.touches[0].clientX - dragStart.x,
+        y: e.touches[0].clientY - dragStart.y,
+      });
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleModalTouchStart = (e) => {
+    setIsDragging(true);
+    setDragStart({
+      x: e.touches[0].clientX - panPosition.x,
+      y: e.touches[0].clientY - panPosition.y,
+    });
+  };
+
+  const handleModalTouchMove = (e) => {
+    if (isDragging) {
+      setPanPosition({
+        x: e.touches[0].clientX - dragStart.x,
+        y: e.touches[0].clientY - dragStart.y,
+      });
+    }
+  };
+
+  const handleModalTouchEnd = () => {
+    setIsDragging(false);
+  };
+
   useEffect(() => {
     const modalElement = modalRef.current;
     const mainElement = mainImageRef.current;
@@ -112,7 +163,6 @@ const FloorPlanShowcasefai = () => {
     };
   }, []);
 
-  
   const handleZoomIn = () => {
     setZoomLevel((prev) => Math.min(prev + 0.2, 4));
   };
@@ -155,11 +205,19 @@ const FloorPlanShowcasefai = () => {
           <div className="relative">
             <div
               ref={mainImageRef}
-              className="bg-gray-100 aspect-video overflow-hidden cursor-move"
+              className="bg-gray-100 overflow-hidden cursor-move"
+              style={{
+                aspectRatio: "16/9",
+                minHeight: "250px", // Ensure minimal height on mobile
+                height: "auto",
+              }}
               onMouseDown={handleMainMouseDown}
               onMouseMove={handleMainMouseMove}
               onMouseUp={handleMainMouseUp}
               onMouseLeave={handleMainMouseUp}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <img
                 src={floorPlansfai[currentImageIndex].image}
@@ -177,45 +235,52 @@ const FloorPlanShowcasefai = () => {
               />
             </div>
 
+            {/* Navigation controls with improved visibility */}
             <div className="right-0 left-0 absolute inset-y-0 flex justify-between items-center px-4 pointer-events-none">
               <button
                 onClick={prevImage}
-                className="bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full text-white transition-colors pointer-events-auto"
+                className="bg-gray-800/80 hover:bg-gray-800 shadow-lg p-2 sm:p-3 rounded-full text-white transition-colors pointer-events-auto"
+                aria-label="Previous image"
               >
                 <ChevronLeft size={24} />
               </button>
               <button
                 onClick={nextImage}
-                className="bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full text-white transition-colors pointer-events-auto"
+                className="bg-gray-800/80 hover:bg-gray-800 shadow-lg p-2 sm:p-3 rounded-full text-white transition-colors pointer-events-auto"
+                aria-label="Next image"
               >
                 <ChevronRight size={24} />
               </button>
             </div>
 
+            {/* Image counter with improved design */}
+            <div className="bottom-4 left-4 absolute bg-gray-800/80 shadow-md px-3 py-1.5 rounded-full font-medium text-white">
+              {currentImageIndex + 1} / {floorPlansfai.length}
+            </div>
+
+            {/* Zoom controls repositioned for better access */}
             <div className="right-4 bottom-4 absolute flex gap-2 pointer-events-none">
               <button
                 onClick={handleZoomOut}
-                className="bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full text-white pointer-events-auto"
+                className="bg-gray-800/80 hover:bg-gray-800 shadow-md p-2 rounded-full text-white pointer-events-auto"
+                aria-label="Zoom out"
               >
                 <ZoomOut size={20} />
               </button>
               <button
                 onClick={handleZoomIn}
-                className="bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full text-white pointer-events-auto"
+                className="bg-gray-800/80 hover:bg-gray-800 shadow-md p-2 rounded-full text-white pointer-events-auto"
+                aria-label="Zoom in"
               >
                 <ZoomIn size={20} />
               </button>
             </div>
-
-            <div className="bottom-4 left-4 absolute bg-gray-800/70 px-3 py-1 rounded-full text-white">
-              {currentImageIndex + 1} / {floorPlansfai.length}
-            </div>
           </div>
 
-          <div className="p-6 border-gray-200 border-t">
-            <div className="flex justify-between items-start">
+          <div className="p-4 sm:p-6 border-gray-200 border-t">
+            <div className="flex md:flex-row flex-col md:justify-between md:items-start gap-4">
               <div>
-                <h2 className="font-semibold text-gray-800 text-2xl">
+                <h2 className="font-semibold text-gray-800 text-xl sm:text-2xl">
                   {floorPlansfai[currentImageIndex].title}
                 </h2>
                 <div className="mt-2">
@@ -230,16 +295,17 @@ const FloorPlanShowcasefai = () => {
                   {floorPlansfai[currentImageIndex].description}
                 </p>
               </div>
-              <div className="flex md:flex-row flex-col md:space-x-2 space-y-2 md:space-y-0">
+              <div className="flex flex-row sm:flex-row gap-2 w-full md:w-auto">
                 <button
-                  className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg text-white transition-colors"
+                  className="flex flex-1 md:flex-none justify-center items-center gap-2 bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg text-white transition-colors"
                   onClick={() => toast("This feature is not accessible.❗❗")}
                 >
                   <MdOutlineLibraryAdd size={20} />
-                  AddToCart
+                  <span className="hidden sm:inline">AddToCart</span>
+                  <span className="sm:hidden">Add</span>
                 </button>
                 <button
-                  className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg text-white transition-colors"
+                  className="flex flex-1 md:flex-none justify-center items-center gap-2 bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg text-white transition-colors"
                   onClick={() => {
                     setShowModal(true);
                     setModalZoom(1);
@@ -252,16 +318,16 @@ const FloorPlanShowcasefai = () => {
               </div>
             </div>
 
-            <div className="gap-4 grid grid-cols-1 md:grid-cols-3 mt-6">
-              <div className="bg-gray-50 p-4 rounded-lg">
+            <div className="gap-3 grid grid-cols-1 sm:grid-cols-3 mt-4 sm:mt-6">
+              <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
                 <h3 className="font-semibold text-gray-800">Bedrooms</h3>
                 <p className="text-gray-600">3 Spacious Rooms</p>
               </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
                 <h3 className="font-semibold text-gray-800">Bathrooms</h3>
                 <p className="text-gray-600">2.5 Bathrooms</p>
               </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
                 <h3 className="font-semibold text-gray-800">Layout</h3>
                 <p className="text-gray-600">Open Concept</p>
               </div>
@@ -271,13 +337,13 @@ const FloorPlanShowcasefai = () => {
       </main>
 
       {showModal && (
-        <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 p-4">
+        <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-90 p-2 sm:p-4">
           <div className="relative bg-white shadow-xl mx-auto rounded-lg w-full max-w-4xl">
-            <div className="p-4 border-b">
-              <h2 className="font-semibold text-gray-800 text-2xl">
+            <div className="p-3 sm:p-4 border-b">
+              <h2 className="font-semibold text-gray-800 text-xl sm:text-2xl">
                 {floorPlansfai[currentImageIndex].title}
               </h2>
-              <div className="mt-2">
+              <div className="mt-1 sm:mt-2">
                 {floorPlansfai[currentImageIndex].areas.map((area, index) => (
                   <p key={index} className="mt-1 font-medium text-green-600">
                     <span className="text-gray-500">{area.label}:</span>{" "}
@@ -296,18 +362,21 @@ const FloorPlanShowcasefai = () => {
                 setModalZoom(1);
                 setPanPosition({ x: 0, y: 0 });
               }}
-              className="top-2 right-2 z-10 absolute bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full text-white"
+              className="top-2 right-2 z-10 absolute bg-gray-800/80 hover:bg-gray-800 shadow-md p-2 rounded-full text-white"
             >
               <X size={20} />
             </button>
 
             <div
               ref={modalRef}
-              className="relative rounded-lg h-[70vh] overflow-hidden cursor-move"
+              className="relative rounded-lg h-[60vh] sm:h-[70vh] overflow-hidden cursor-move"
               onMouseDown={handleModalMouseDown}
               onMouseMove={handleModalMouseMove}
               onMouseUp={handleModalMouseUp}
               onMouseLeave={handleModalMouseUp}
+              onTouchStart={handleModalTouchStart}
+              onTouchMove={handleModalTouchMove}
+              onTouchEnd={handleModalTouchEnd}
             >
               <div className="absolute inset-0 flex justify-center items-center bg-gray-100">
                 <img
@@ -321,6 +390,26 @@ const FloorPlanShowcasefai = () => {
                   draggable="false"
                 />
               </div>
+
+              {/* Add zoom controls to modal */}
+              <div className="right-4 bottom-4 absolute flex gap-2">
+                <button
+                  onClick={() =>
+                    setModalZoom((prev) => Math.max(prev - 0.2, 1))
+                  }
+                  className="bg-gray-800/80 hover:bg-gray-800 shadow-md p-2 rounded-full text-white"
+                >
+                  <ZoomOut size={20} />
+                </button>
+                <button
+                  onClick={() =>
+                    setModalZoom((prev) => Math.min(prev + 0.2, 4))
+                  }
+                  className="bg-gray-800/80 hover:bg-gray-800 shadow-md p-2 rounded-full text-white"
+                >
+                  <ZoomIn size={20} />
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -329,4 +418,4 @@ const FloorPlanShowcasefai = () => {
   );
 };
 
-export default FloorPlanShowcasefai;
+export default FloorPlanShowcase;

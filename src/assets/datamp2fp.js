@@ -112,7 +112,7 @@ export const floorPlansfif = [
   },
   {
     id: 5,
-    title: "2D_FIF with Imperial measurementsand out side dim",
+    title: "2D_FIF with Imperial measurements and out side dim",
     areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1900 ft²" }],
     description: "Spacious 3-bedroom floor plan with open concept living",
     image: assets.Mp2fpfif5,
@@ -140,7 +140,7 @@ export const floorPlansfif = [
   },
   {
     id: 9,
-    title: "USNormal _FIF_2D",
+    title: "US Normal_FIF_2D",
     areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1900 ft²" }],
     description: "Spacious 3-bedroom floor plan with open concept living",
     image: assets.Mp2fpfif9,
