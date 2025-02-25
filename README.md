@@ -9,3 +9,72 @@ Currently, two official plugins are available:
 
 - npm install
 - npm run dev
+
+Path to Page / Login & Register
+- http://localhost:5173/login
+- http://localhost:5173/register
+
+
+Create backend Admin Page
+- Admin Folder
+    - AdminHomePage
+    - AdminLayout
+    - AdminSidebar
+    - AdminEditProductPage
+    - AdminOrderManagement
+    - AdminProductManagement
+    - AdminUserManagement
+
+Create frontend
+- User Folder
+    - Cart 
+    - CartContents
+    - Checkout
+    - PayPalButton
+
+- Category
+    - FloorPlanShowcase // UF
+    - FloorPlanShowcasefal // FAI
+    - FloorPlanShowcaseff // FF
+    - FloorPlanShowcasefif // FIF
+    - FloorPlanShowcasesp // SP
+
+- Common
+    - Footer
+    - Header
+    - logo
+    - Navbar
+    - ScrollToTop
+    - Search
+
+- Layout
+    - CartDrawer
+    - FAQs
+    - Hero
+    - Topbar
+    - UserLayout
+
+- Products
+    - FilterSidebar
+    - FloorplanOrder
+    - FloorplanViewer
+    - GenderCollectionSection
+    - NewArrivals
+    - ProcessTimeline
+    - ProductDetails
+    - ProductGrid
+    - SortOptions
+
+- Pages
+    - CollectionPage
+    - ContactPage
+    - Home
+    - Login
+    - MyOrderPage
+    - OrderConfirmationPage
+    - OrderDetailsPage
+    - PolicyLayout
+    - Profile
+    - Register
+
+- APP
