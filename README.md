@@ -11,8 +11,8 @@ Currently, two official plugins are available:
 - npm run dev
 
 Path to Page / Login & Register
-- http://localhost:5173/login
-- http://localhost:5173/register
+- /login
+- /register
 
 
 Create backend Admin Page
