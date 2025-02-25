@@ -27,54 +27,54 @@ Create backend Admin Page
 
 Create frontend
 - User Folder
-    - Cart 
-    - CartContents
-    - Checkout
-    - PayPalButton
+- Cart 
+    - CartContents.jsx
+    - Checkout.jsx
+    - PayPalButton.jsx
 
 - Category
-    - FloorPlanShowcase // UF
-    - FloorPlanShowcasefal // FAI
-    - FloorPlanShowcaseff // FF
-    - FloorPlanShowcasefif // FIF
-    - FloorPlanShowcasesp // SP
+    - FloorPlanShowcase.jsx // UF
+    - FloorPlanShowcasefal.jsx // FAI
+    - FloorPlanShowcaseff.jsx // FF
+    - FloorPlanShowcasefif.jsx // FIF
+    - FloorPlanShowcasesp.jsx // SP
 
 - Common
-    - Footer
-    - Header
-    - logo
-    - Navbar
-    - ScrollToTop
-    - Search
+    - Footer.jsx
+    - Header.jsx
+    - logo.jsx
+    - Navbar.jsx
+    - ScrollToTop.jsx
+    - Search.jsx
 
 - Layout
-    - CartDrawer
-    - FAQs
-    - Hero
-    - Topbar
-    - UserLayout
+    - CartDrawer.jsx
+    - FAQs.jsx
+    - Hero.jsx
+    - Topbar.jsx
+    - UserLayout.jsx
 
 - Products
-    - FilterSidebar
-    - FloorplanOrder
-    - FloorplanViewer
-    - GenderCollectionSection
-    - NewArrivals
-    - ProcessTimeline
-    - ProductDetails
-    - ProductGrid
-    - SortOptions
+    - FilterSidebar.jsx
+    - FloorplanOrder.jsx
+    - FloorplanViewer.jsx
+    - GenderCollectionSection.jsx
+    - NewArrivals.jsx
+    - ProcessTimeline.jsx
+    - ProductDetails.jsx
+    - ProductGrid.jsx
+    - SortOptions.jsx
 
 - Pages
-    - CollectionPage
-    - ContactPage
-    - Home
-    - Login
-    - MyOrderPage
-    - OrderConfirmationPage
-    - OrderDetailsPage
-    - PolicyLayout
-    - Profile
-    - Register
+    - CollectionPage.jsx
+    - ContactPage.jsx
+    - Home.jsx
+    - Login.jsx
+    - MyOrderPage.jsx
+    - OrderConfirmationPage.jsx
+    - OrderDetailsPage.jsx
+    - PolicyLayout.jsx
+    - Profile.jsx
+    - Register.jsx
 
-- APP
+- APP.jsx
