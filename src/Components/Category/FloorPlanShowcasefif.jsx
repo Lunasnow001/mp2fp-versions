@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut, X } from "lucide-react";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { FaPhotoFilm } from "react-icons/fa6";
-import { assets } from "../../assets/assets";
+import { floorPlansfif } from "../../assets/datamp2fp";
 import { toast } from "sonner";
 
 const FloorPlanShowcasefif = () => {
@@ -112,77 +112,7 @@ const FloorPlanShowcasefif = () => {
     };
   }, []);
 
-  const floorPlans = [
-    {
-      id: 1,
-      title: "2D_FIF with GLA",
-      areas: [
-        { label: "GROSS LIVING AREA", value: "2,053 ft²" },
-        { label: "EXCLUDING AREA", value: "397 ft²" },
-        { label: "PORCH", value: "129 ft²" },
-        { label: "PATIO", value: "268 ft²" },
-      ],
-      description: "Same space, different perspective",
-      image: assets.Mp2fpfif1,
-    },
-    {
-      id: 2,
-      title: "2D_FIF with Imperial inside dim",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1900 ft²" }],
-      description: "Spacious 3-bedroom floor plan with open concept living",
-      image: assets.Mp2fpfif2,
-    },
-    {
-      id: 3,
-      title: "2D_FIF with Imperial measurements",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1900 ft²" }],
-      description: "Spacious 3-bedroom floor plan with open concept living",
-      image: assets.Mp2fpfif3,
-    },
-    {
-      id: 4,
-      title: "2D_FIF with Imperial measurements and arrow",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1900 ft²" }],
-      description: "Spacious 3-bedroom floor plan with open concept living",
-      image: assets.Mp2fpfif4,
-    },
-    {
-      id: 5,
-      title: "2D_FIF with Imperial measurementsand out side dim",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1900 ft²" }],
-      description: "Spacious 3-bedroom floor plan with open concept living",
-      image: assets.Mp2fpfif5,
-    },
-    {
-      id: 6,
-      title: "2D_FIF with Metin side dim",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "177 m²" }],
-      description: "Spacious 3-bedroom floor plan with open concept living",
-      image: assets.Mp2fpfif6,
-    },
-    {
-      id: 7,
-      title: "2D_FIF with Metmeasurements and arrow",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "177 m²" }],
-      description: "Spacious 3-bedroom floor plan with open concept living",
-      image: assets.Mp2fpfif7,
-    },
-    {
-      id: 8,
-      title: "2D_FIF with Metmeasurements and out side dim",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "177 m²" }],
-      description: "Spacious 3-bedroom floor plan with open concept living",
-      image: assets.Mp2fpfif8,
-    },
-    {
-      id: 9,
-      title: "USNormal _FIF_2D",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1900 ft²" }],
-      description: "Spacious 3-bedroom floor plan with open concept living",
-      image: assets.Mp2fpfif9,
-    },
-    
-  ];
+ 
 
   const handleZoomIn = () => {
     setZoomLevel((prev) => Math.min(prev + 0.2, 4));
@@ -199,14 +129,14 @@ const FloorPlanShowcasefif = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % floorPlans.length);
+    setCurrentImageIndex((prev) => (prev + 1) % floorPlansfif.length);
     setZoomLevel(1);
     setMainPanPosition({ x: 0, y: 0 });
   };
 
   const prevImage = () => {
     setCurrentImageIndex(
-      (prev) => (prev - 1 + floorPlans.length) % floorPlans.length
+      (prev) => (prev - 1 + floorPlansfif.length) % floorPlansfif.length
     );
     setZoomLevel(1);
     setMainPanPosition({ x: 0, y: 0 });
@@ -233,8 +163,8 @@ const FloorPlanShowcasefif = () => {
               onMouseLeave={handleMainMouseUp}
             >
               <img
-                src={floorPlans[currentImageIndex].image}
-                alt={floorPlans[currentImageIndex].title}
+                src={floorPlansfif[currentImageIndex].image}
+                alt={floorPlansfif[currentImageIndex].title}
                 className="w-full h-full object-contain transition-transform duration-200"
                 style={{
                   transform: `translate(${mainPanPosition.x}px, ${mainPanPosition.y}px) scale(${zoomLevel})`,
@@ -279,7 +209,7 @@ const FloorPlanShowcasefif = () => {
             </div>
 
             <div className="bottom-4 left-4 absolute bg-gray-800/70 px-3 py-1 rounded-full text-white">
-              {currentImageIndex + 1} / {floorPlans.length}
+              {currentImageIndex + 1} / {floorPlansfif.length}
             </div>
           </div>
 
@@ -287,10 +217,10 @@ const FloorPlanShowcasefif = () => {
             <div className="flex justify-between items-start">
               <div>
                 <h2 className="font-semibold text-gray-800 text-2xl">
-                  {floorPlans[currentImageIndex].title}
+                  {floorPlansfif[currentImageIndex].title}
                 </h2>
                 <div className="mt-2">
-                  {floorPlans[currentImageIndex].areas.map((area, index) => (
+                  {floorPlansfif[currentImageIndex].areas.map((area, index) => (
                     <p key={index} className="mt-1 font-medium text-green-600">
                       <span className="text-gray-500">{area.label}:</span>{" "}
                       {area.value}
@@ -298,10 +228,10 @@ const FloorPlanShowcasefif = () => {
                   ))}
                 </div>
                 <p className="mt-2 text-gray-600">
-                  {floorPlans[currentImageIndex].description}
+                  {floorPlansfif[currentImageIndex].description}
                 </p>
               </div>
-              <div className="flex space-x-2">
+              <div className="flex md:flex-row flex-col md:space-x-2 space-y-2 md:space-y-0">
                 <button
                   className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg text-white transition-colors"
                   onClick={() => toast("This feature is not accessible.❗❗")}
@@ -346,10 +276,10 @@ const FloorPlanShowcasefif = () => {
           <div className="relative bg-white shadow-xl mx-auto rounded-lg w-full max-w-4xl">
             <div className="p-4 border-b">
               <h2 className="font-semibold text-gray-800 text-2xl">
-                {floorPlans[currentImageIndex].title}
+                {floorPlansfif[currentImageIndex].title}
               </h2>
               <div className="mt-2">
-                {floorPlans[currentImageIndex].areas.map((area, index) => (
+                {floorPlansfif[currentImageIndex].areas.map((area, index) => (
                   <p key={index} className="mt-1 font-medium text-green-600">
                     <span className="text-gray-500">{area.label}:</span>{" "}
                     {area.value}
@@ -357,7 +287,7 @@ const FloorPlanShowcasefif = () => {
                 ))}
               </div>
               <p className="mt-1 text-gray-600">
-                {floorPlans[currentImageIndex].description}
+                {floorPlansfif[currentImageIndex].description}
               </p>
             </div>
 
@@ -382,8 +312,8 @@ const FloorPlanShowcasefif = () => {
             >
               <div className="absolute inset-0 flex justify-center items-center bg-gray-100">
                 <img
-                  src={floorPlans[currentImageIndex].image}
-                  alt={floorPlans[currentImageIndex].title}
+                  src={floorPlansfif[currentImageIndex].image}
+                  alt={floorPlansfif[currentImageIndex].title}
                   className="max-w-full max-h-full object-contain transition-transform duration-200"
                   style={{
                     transform: `translate(${panPosition.x}px, ${panPosition.y}px) scale(${modalZoom})`,

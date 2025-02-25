@@ -36,10 +36,10 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="right-4 bottom-4 z-50 fixed bg-orange-400 hover:bg-orange-600 shadow-lg p-3 rounded-full text-white transition-all duration-300"
+          className="right-4 bottom-4 z-50 fixed bg-orange-400 hover:bg-orange-600 shadow-lg p-3 rounded-full text-white transition-all animate-bounce duration-300"
           aria-label="Scroll to top"
         >
-          <AiFillCaretUp  className="w-6 h-6" />
+          <AiFillCaretUp className="w-6 h-6" />
         </button>
       )}
     </>

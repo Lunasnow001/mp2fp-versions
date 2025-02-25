@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut, X } from "lucide-react";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { FaPhotoFilm } from "react-icons/fa6";
-import { assets } from "../../assets/assets";
+import { floorPlanssp } from "../../assets/datamp2fp";
 import { toast } from "sonner";
 
 const FloorPlanShowcasesp = () => {
@@ -112,29 +112,7 @@ const FloorPlanShowcasesp = () => {
     };
   }, []);
 
-  const floorPlans = [
-    {
-      id: 1,
-      title: "Modern Living Space (SP)",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1,900 ft²" }],
-      description: "Spacious 3-bedroom floor plan with open concept living",
-      image: assets.No_image,
-    },
-    {
-      id: 2,
-      title: "2D_FAI With Imperial Measurement",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1,900 ft²" }],
-      description: "Same space, different perspective",
-      image: assets.No_image,
-    },
-    {
-      id: 3,
-      title: "2D_FAI With Met Measurement",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "177 m²" }],
-      description: "Same space, different perspective",
-      image: assets.No_image,
-    },
-  ];
+  
 
   const handleZoomIn = () => {
     setZoomLevel((prev) => Math.min(prev + 0.2, 4));
@@ -151,14 +129,14 @@ const FloorPlanShowcasesp = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % floorPlans.length);
+    setCurrentImageIndex((prev) => (prev + 1) % floorPlanssp.length);
     setZoomLevel(1);
     setMainPanPosition({ x: 0, y: 0 });
   };
 
   const prevImage = () => {
     setCurrentImageIndex(
-      (prev) => (prev - 1 + floorPlans.length) % floorPlans.length
+      (prev) => (prev - 1 + floorPlanssp.length) % floorPlanssp.length
     );
     setZoomLevel(1);
     setMainPanPosition({ x: 0, y: 0 });
@@ -185,8 +163,8 @@ const FloorPlanShowcasesp = () => {
               onMouseLeave={handleMainMouseUp}
             >
               <img
-                src={floorPlans[currentImageIndex].image}
-                alt={floorPlans[currentImageIndex].title}
+                src={floorPlanssp[currentImageIndex].image}
+                alt={floorPlanssp[currentImageIndex].title}
                 className="w-full h-full object-contain transition-transform duration-200"
                 style={{
                   transform: `translate(${mainPanPosition.x}px, ${mainPanPosition.y}px) scale(${zoomLevel})`,
@@ -231,7 +209,7 @@ const FloorPlanShowcasesp = () => {
             </div>
 
             <div className="bottom-4 left-4 absolute bg-gray-800/70 px-3 py-1 rounded-full text-white">
-              {currentImageIndex + 1} / {floorPlans.length}
+              {currentImageIndex + 1} / {floorPlanssp.length}
             </div>
           </div>
 
@@ -239,10 +217,10 @@ const FloorPlanShowcasesp = () => {
             <div className="flex justify-between items-start">
               <div>
                 <h2 className="font-semibold text-gray-800 text-2xl">
-                  {floorPlans[currentImageIndex].title}
+                  {floorPlanssp[currentImageIndex].title}
                 </h2>
                 <div className="mt-2">
-                  {floorPlans[currentImageIndex].areas.map((area, index) => (
+                  {floorPlanssp[currentImageIndex].areas.map((area, index) => (
                     <p key={index} className="mt-1 font-medium text-green-600">
                       <span className="text-gray-500">{area.label}:</span>{" "}
                       {area.value}
@@ -250,10 +228,10 @@ const FloorPlanShowcasesp = () => {
                   ))}
                 </div>
                 <p className="mt-2 text-gray-600">
-                  {floorPlans[currentImageIndex].description}
+                  {floorPlanssp[currentImageIndex].description}
                 </p>
               </div>
-              <div className="flex space-x-2">
+              <div className="flex md:flex-row flex-col md:space-x-2 space-y-2 md:space-y-0">
                 <button
                   className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg text-white transition-colors"
                   onClick={() => toast("This feature is not accessible.❗❗")}
@@ -298,10 +276,10 @@ const FloorPlanShowcasesp = () => {
           <div className="relative bg-white shadow-xl mx-auto rounded-lg w-full max-w-4xl">
             <div className="p-4 border-b">
               <h2 className="font-semibold text-gray-800 text-2xl">
-                {floorPlans[currentImageIndex].title}
+                {floorPlanssp[currentImageIndex].title}
               </h2>
               <div className="mt-2">
-                {floorPlans[currentImageIndex].areas.map((area, index) => (
+                {floorPlanssp[currentImageIndex].areas.map((area, index) => (
                   <p key={index} className="mt-1 font-medium text-green-600">
                     <span className="text-gray-500">{area.label}:</span>{" "}
                     {area.value}
@@ -309,7 +287,7 @@ const FloorPlanShowcasesp = () => {
                 ))}
               </div>
               <p className="mt-1 text-gray-600">
-                {floorPlans[currentImageIndex].description}
+                {floorPlanssp[currentImageIndex].description}
               </p>
             </div>
 
@@ -334,8 +312,8 @@ const FloorPlanShowcasesp = () => {
             >
               <div className="absolute inset-0 flex justify-center items-center bg-gray-100">
                 <img
-                  src={floorPlans[currentImageIndex].image}
-                  alt={floorPlans[currentImageIndex].title}
+                  src={floorPlanssp[currentImageIndex].image}
+                  alt={floorPlanssp[currentImageIndex].title}
                   className="max-w-full max-h-full object-contain transition-transform duration-200"
                   style={{
                     transform: `translate(${panPosition.x}px, ${panPosition.y}px) scale(${modalZoom})`,

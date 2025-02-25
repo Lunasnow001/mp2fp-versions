@@ -117,7 +117,7 @@ const Navbar = () => {
             <div className="relative">
               <img
                 className="border hover:border-orange-400 rounded-full w-8 h-8"
-                src="https://img.lovepik.com/png/20231110/black-cat-face-black-cats-cartoon-sticker_554984_wh860.png"
+                src="https://marketplace.wganforum.com/wp-content/uploads/2020/06/landing-logo-2.jpg"
                 alt="Profile"
               />
               <span className="top-0 left-6 absolute bg-green-500 border-2 border-white dark:border-gray-800 rounded-full w-3.5 h-3.5"></span>

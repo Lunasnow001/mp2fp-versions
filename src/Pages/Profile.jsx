@@ -1,6 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import MyOrderPage from "./MyOrderPage";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const Profile = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/");
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex-grow mx-auto p-4 md:p-6 container">
@@ -11,7 +19,7 @@ const Profile = () => {
               <div className="shrink-0">
                 <img
                   className="rounded-full w-14 h-14"
-                  src="https://img.lovepik.com/png/20231110/black-cat-face-black-cats-cartoon-sticker_554984_wh860.png"
+                  src="https://marketplace.wganforum.com/wp-content/uploads/2020/06/landing-logo-2.jpg"
                   alt="Neil image"
                 />
               </div>
@@ -28,8 +36,12 @@ const Profile = () => {
                 Available
               </span>
             </div>
-            <button className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded w-full text-white">
-              Logout
+            <button
+              className="flex justify-center items-center space-x-2 bg-red-500 hover:bg-red-600 py-2 rounded w-full text-white"
+              onClick={handleLogout}
+            >
+              <FaSignOutAlt />
+              <span>Logout</span>
             </button>
           </div>
           {/* Right Section: Orders table*/}

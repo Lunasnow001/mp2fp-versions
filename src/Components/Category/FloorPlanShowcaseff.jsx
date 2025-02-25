@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { FaPhotoFilm } from "react-icons/fa6";
-import { assets } from "../../assets/assets";
+import { floorPlansff } from "../../assets/datamp2fp";
 import { toast } from "sonner";
 
 const FloorPlanShowcaseff = () => {
@@ -114,30 +114,6 @@ const FloorPlanShowcaseff = () => {
     };
   }, []);
 
-  const floorPlans = [
-    {
-      id: 1,
-      title: "US Normal_FF_2D",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1,900 ft²" }],
-      description: "Spacious 3-bedroom floor plan with open concept living",
-      image: assets.Mp2fpff,
-    },
-    {
-      id: 2,
-      title: "2D_FF With Imperial Measurement",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "1,900 ft²" }],
-      description: "Same space, different perspective",
-      image: assets.Mp2fpff2,
-    },
-    {
-      id: 3,
-      title: "2D_FF With Met Measurement",
-      areas: [{ label: "APPROXIMATE GROSS LIVING AREA", value: "177 m²" }],
-      description: "Same space, different perspective",
-      image: assets.Mp2fpff3,
-    },
-  ];
-
   const handleZoomIn = () => {
     setZoomLevel((prev) => Math.min(prev + 0.2, 4));
   };
@@ -153,13 +129,13 @@ const FloorPlanShowcaseff = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % floorPlans.length);
+    setCurrentImageIndex((prev) => (prev + 1) % floorPlansff.length);
     setZoomLevel(1);
     setMainPanPosition({ x: 0, y: 0 });
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + floorPlans.length) % floorPlans.length);
+    setCurrentImageIndex((prev) => (prev - 1 + floorPlansff.length) % floorPlansff.length);
     setZoomLevel(1);
     setMainPanPosition({ x: 0, y: 0 });
   };
@@ -185,8 +161,8 @@ const FloorPlanShowcaseff = () => {
               onMouseLeave={handleMainMouseUp}
             >
               <img
-                src={floorPlans[currentImageIndex].image}
-                alt={floorPlans[currentImageIndex].title}
+                src={floorPlansff[currentImageIndex].image}
+                alt={floorPlansff[currentImageIndex].title}
                 className="w-full h-full object-contain transition-transform duration-200"
                 style={{ 
                   transform: `translate(${mainPanPosition.x}px, ${mainPanPosition.y}px) scale(${zoomLevel})`,
@@ -227,7 +203,7 @@ const FloorPlanShowcaseff = () => {
             </div>
 
             <div className="bottom-4 left-4 absolute bg-gray-800/70 px-3 py-1 rounded-full text-white">
-              {currentImageIndex + 1} / {floorPlans.length}
+              {currentImageIndex + 1} / {floorPlansff.length}
             </div>
           </div>
 
@@ -235,10 +211,10 @@ const FloorPlanShowcaseff = () => {
             <div className="flex justify-between items-start">
               <div>
                 <h2 className="font-semibold text-gray-800 text-2xl">
-                  {floorPlans[currentImageIndex].title}
+                  {floorPlansff[currentImageIndex].title}
                 </h2>
                 <div className="mt-2">
-                  {floorPlans[currentImageIndex].areas.map((area, index) => (
+                  {floorPlansff[currentImageIndex].areas.map((area, index) => (
                     <p key={index} className="mt-1 font-medium text-green-600">
                       <span className="text-gray-500">{area.label}:</span>{" "}
                       {area.value}
@@ -246,10 +222,10 @@ const FloorPlanShowcaseff = () => {
                   ))}
                 </div>
                 <p className="mt-2 text-gray-600">
-                  {floorPlans[currentImageIndex].description}
+                  {floorPlansff[currentImageIndex].description}
                 </p>
               </div>
-              <div className="flex space-x-2">
+              <div className="flex md:flex-row flex-col md:space-x-2 space-y-2 md:space-y-0">
                 <button
                   className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg text-white transition-colors"
                   onClick={() => toast("This feature is not accessible.❗❗")}
@@ -294,10 +270,10 @@ const FloorPlanShowcaseff = () => {
           <div className="relative bg-white shadow-xl mx-auto rounded-lg w-full max-w-4xl">
             <div className="p-4 border-b">
               <h2 className="font-semibold text-gray-800 text-2xl">
-                {floorPlans[currentImageIndex].title}
+                {floorPlansff[currentImageIndex].title}
               </h2>
               <div className="mt-2">
-                {floorPlans[currentImageIndex].areas.map((area, index) => (
+                {floorPlansff[currentImageIndex].areas.map((area, index) => (
                   <p key={index} className="mt-1 font-medium text-green-600">
                     <span className="text-gray-500">{area.label}:</span>{" "}
                     {area.value}
@@ -305,7 +281,7 @@ const FloorPlanShowcaseff = () => {
                 ))}
               </div>
               <p className="mt-1 text-gray-600">
-                {floorPlans[currentImageIndex].description}
+                {floorPlansff[currentImageIndex].description}
               </p>
             </div>
 
@@ -330,8 +306,8 @@ const FloorPlanShowcaseff = () => {
             >
               <div className="absolute inset-0 flex justify-center items-center bg-gray-100">
                 <img
-                  src={floorPlans[currentImageIndex].image}
-                  alt={floorPlans[currentImageIndex].title}
+                  src={floorPlansff[currentImageIndex].image}
+                  alt={floorPlansff[currentImageIndex].title}
                   className="max-w-full max-h-full object-contain transition-transform duration-200"
                   style={{
                     transform: `translate(${panPosition.x}px, ${panPosition.y}px) scale(${modalZoom})`,
