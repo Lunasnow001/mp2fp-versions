@@ -17,13 +17,13 @@ Path to Page / Login & Register
 
 Create backend Admin Page
 - Admin Folder
-    - AdminHomePage
-    - AdminLayout
-    - AdminSidebar
-    - AdminEditProductPage
-    - AdminOrderManagement
-    - AdminProductManagement
-    - AdminUserManagement
+    - AdminHomePage.jsx
+    - AdminLayout.jsx
+    - AdminSidebar.jsx
+    - AdminEditProductPage.jsx
+    - AdminOrderManagement.jsx
+    - AdminProductManagement.jsx
+    - AdminUserManagement.jsx
 
 Create frontend
 - User Folder
