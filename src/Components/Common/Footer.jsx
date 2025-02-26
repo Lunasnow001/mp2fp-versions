@@ -90,14 +90,14 @@ const Footer = ({ border }) => {
             <ul className="space-y-2 text-sm">
               <li className="cursor-pointer">
                 <div className="flex text-gray-300 hover:text-white transition">
-                  <FaEnvelope className="mr-2 w-4 h-4" />
+                  <FaEnvelope className="mr-2 w-5 h-5" />
                   <Link to="/contact">Contact To mp2fp</Link>
                   {/* <FaEnvelope className="mr-2 w-4 h-4" /> contact@mp2fp.com */}
                 </div>
               </li>
               <li className="cursor-pointer">
                 <div className="flex text-gray-300 hover:text-white transition">
-                  <GiWorld className="mr-2 w-4 h-4" />
+                  <GiWorld className="mr-2 w-5 h-5" />
                   <a
                     href="mailto:contact@mp2fp.com"
                     className="text-gray-300 hover:text-white"
@@ -107,9 +107,9 @@ const Footer = ({ border }) => {
                 </div>
               </li>
               <li className="cursor-pointer">
-                <div className="flex text-gray-300 transition">
-                  <FaMapMarkerAlt className="mr-2 w-6 h-6" /> 18/33 The Terrace
-                  Ramintra 65 Tahrang Bangkok Thailand 10220
+                <div className="flex justify-between text-gray-300 transition">
+                  <FaMapMarkerAlt className="mx-1 w-10 h-10" /> 18/33 The
+                  Terrace Ramintra 65 Tahrang Bangkok Thailand 10220
                 </div>
               </li>
             </ul>

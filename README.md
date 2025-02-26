@@ -77,4 +77,4 @@ Create frontend
     - Profile.jsx
     - Register.jsx
 
-- APP.jsx
+- App.jsx

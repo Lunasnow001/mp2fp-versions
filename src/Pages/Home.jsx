@@ -85,7 +85,7 @@ const Home = () => {
 
       <button
         onClick={toggleDarkMode}
-        className="hidden md:block top-3 right-4 z-50 fixed p-1 border border-gray-500 hover:border-orange-400 rounded-full transition-all duration-200"
+        className="hidden lg:block top-3 right-4 z-50 fixed p-1 border border-gray-500 hover:border-orange-400 rounded-full transition-all duration-200"
       >
         {darkMode ? (
           <Sun className="w-6 h-6 text-orange-500" />

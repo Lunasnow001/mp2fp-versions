@@ -192,7 +192,7 @@ const FloorPlanShowcase = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50">
       <header className="bg-[#415268] py-6 text-white">
         <div className="mx-auto px-4 container">
           <h1 className="font-bold text-3xl">Fully Furnished (FF)</h1>
