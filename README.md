@@ -10,7 +10,7 @@ Currently, two official plugins are available:
 - npm install
 - npm run dev
 
-Path to Page / Login & Register
+Path to Page / Login & Register - Page
 - /login
 - /register
 
@@ -78,3 +78,8 @@ Create frontend
     - Register.jsx
 
 - App.jsx
+
+
+- created sample data in the file 
+   - src/assets/assets.js
+   - src/assets/datamp2fp.js

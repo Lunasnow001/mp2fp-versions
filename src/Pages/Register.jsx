@@ -31,7 +31,9 @@ const Register = () => {
             Enter your username and password to login
           </p>
           <div className="mb-4">
-            <label className="block mb-2 font-semibold text-sm">Name</label>
+            <label className="block mb-2 font-semibold text-sm">
+              Name <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
               value={name}
@@ -41,7 +43,9 @@ const Register = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block mb-2 font-semibold text-sm">Email</label>
+            <label className="block mb-2 font-semibold text-sm">
+              Email <span className="text-red-500">*</span>
+            </label>
             <input
               type="email"
               value={email}
@@ -51,7 +55,9 @@ const Register = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block mb-2 font-semibold text-sm">Password</label>
+            <label className="block mb-2 font-semibold text-sm">
+              Password <span className="text-red-500">*</span>
+            </label>
             <input
               type="password"
               value={password}
@@ -64,9 +70,9 @@ const Register = () => {
             type="submit"
             className="bg-black hover:bg-gray-800 p-2 rounded-lg w-full font-semibold text-white transition"
           >
-            Sign In
+            Sign Up
           </button>
-          <p className="mt-6 text-center text-sm">
+          <p className="mt-6 text-sm text-center">
             Don&apos;t have an account?
             <Link to="/login" className="text-blue-500">
               {" "}
@@ -75,14 +81,22 @@ const Register = () => {
           </p>
         </form>
       </div>
-
-      <div className="md:block hidden bg-gray-800 w-1/2">
-        <div className="flex flex-col justify-center items-center h-full">
+      <div className="hidden md:block bg-gray-400 w-1/2">
+        {/* <div className="flex flex-col justify-center items-center h-full">
           <img
             src={LogoMp2}
             alt="Login to Account"
-            className="hover:bg-white shadow-lg border w-full h-[750px] hover:-translate-y-1 active:translate-y-0 duration-300 object-cover"
+            className="hover:bg-white shadow-lg border w-full h-[750px] object-cover hover:-translate-y-1 active:translate-y-0 duration-300"
           />
+        </div> */}
+        <div className="flex md:flex-row flex-col items-center gap-6 md:gap-8 p-7 rounded-2xl">
+          <div>
+            <img
+              src={LogoMp2}
+              alt="Login to Account"
+              className="hover:bg-white shadow-lg border w-full h-[750px] object-cover hover:-translate-y-1 active:translate-y-0 duration-300"
+            />
+          </div>
         </div>
       </div>
     </div>
